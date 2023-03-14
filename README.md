@@ -7,9 +7,11 @@ Scripts used to calculate decomposition energy for all halide perovskits.
 Using Python 3.9, pands, numpy, sympy and matplotlib required.
 
 [i] DecompositionEnergyCalculator.py
+
 general decomposition energy calculator for all halide perovskites. Used in all decomposition energy calculation shown in the papre
 
 [ii] DecompositionEnergy_Xmix.py
+
 Special verision of decomposioin energy calculator for X-mixed halide perovskites. 
 Since the X-mixed halide perovskites have multipul decomposed phase possiblity, this code is used to find the most possible decomposition reaction.
 Used in section: "Decomposition Enery correction for X site mixed perovskites"
