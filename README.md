@@ -18,7 +18,9 @@ Used in section: "Decomposition Enery correction for X site mixed perovskites"
 (2) input files:
 The input files to use the decomposition calculator is an spreadsheet. 
 The format of input file is a 14 dimentional compositon vector as 1-14th column and total energy p.f.u calcualted from DFT in 15th column.
+
 The example input files can be found as 
+
 [i] decom_calcs.xlsx -> used for DecompositionEnergyCalculator.py
 
 [ii] Decomp_HSErel_SOC_calcs.xlsx -> used for DecompositionEnergy_Xmix.py
