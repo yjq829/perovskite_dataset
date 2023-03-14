@@ -179,48 +179,6 @@ def decomp_calc(frac_input, TOTEN_input, functional='HSE'):
         mixing_entropy = entropy_calcs(decomp_phase_frac)
         print(mixing_entropy)
         decomp_energy = TOTEN - np.dot(np.array(decomp_phase_frac), np.array(phase_ref_energy)) + mixing_entropy
-    elif functional == 'd3':
-        element, mix, fomula, element_frac = mixing_ana(frac)
-        # print(element, mix, fomula)
-        decomp_phase, decomp_phase_frac = decomp_phase_ext(element, fomula, mix, element_frac)
-        print(decomp_phase)
-        phase_ref_energy = []
-        # use decom_phase to search ref energy in dictionary
-        for i in decomp_phase:
-            phase_ref_energy.append(ref_d3_dict[i])
-        print(decomp_phase_frac)
-        print(phase_ref_energy)
-        mixing_entropy = entropy_calcs(decomp_phase_frac)
-        print(mixing_entropy)
-        decomp_energy = TOTEN - np.dot(np.array(decomp_phase_frac), np.array(phase_ref_energy)) + mixing_entropy
-    elif functional == 'sol':
-        element, mix, fomula, element_frac = mixing_ana(frac)
-        # print(element, mix, fomula)
-        decomp_phase, decomp_phase_frac = decomp_phase_ext(element, fomula, mix, element_frac)
-        print(decomp_phase)
-        phase_ref_energy = []
-        # use decom_phase to search ref energy in dictionary
-        for i in decomp_phase:
-            phase_ref_energy.append(ref_sol_dict[i])
-        print(decomp_phase_frac)
-        print(phase_ref_energy)
-        mixing_entropy = entropy_calcs(decomp_phase_frac)
-        print(mixing_entropy)
-        decomp_energy = TOTEN - np.dot(np.array(decomp_phase_frac), np.array(phase_ref_energy)) + mixing_entropy
-    elif functional == 'sol-d3':
-        element, mix, fomula, element_frac = mixing_ana(frac)
-        # print(element, mix, fomula)
-        decomp_phase, decomp_phase_frac = decomp_phase_ext(element, fomula, mix, element_frac)
-        print(decomp_phase)
-        phase_ref_energy = []
-        # use decom_phase to search ref energy in dictionary
-        for i in decomp_phase:
-            phase_ref_energy.append(ref_sol_d3_dict[i])
-        print(decomp_phase_frac)
-        print(phase_ref_energy)
-        mixing_entropy = entropy_calcs(decomp_phase_frac)
-        print(mixing_entropy)
-        decomp_energy = TOTEN - np.dot(np.array(decomp_phase_frac), np.array(phase_ref_energy)) + mixing_entropy
     return decomp_energy
 
 
