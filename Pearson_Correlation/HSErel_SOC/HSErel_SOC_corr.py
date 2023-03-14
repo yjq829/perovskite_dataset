@@ -6,7 +6,7 @@ from scipy import stats
 import csv
 
     # Read Data
-ifile  = open('HSE_data.csv', "rt")
+ifile  = open('HSErel_SOC_data.csv', "rt")
 reader = csv.reader(ifile)
 csvdata=[]
 for row in reader:
@@ -17,7 +17,6 @@ numcol=len(csvdata[0])
 csvdata = np.array(csvdata).reshape(numrow,numcol)
 Formula = csvdata[:,0]
 Mixing = csvdata[:,1]
-# HSE_latt = csvdata[:,2]
 HSE_decomp_en = csvdata[:,2]
 HSE_gap  = csvdata[:,3]
 HSE_slme = csvdata[:,4]
@@ -56,28 +55,18 @@ for i in range(0,m):
     Corr[2][i] = x[0]
 
 
-
-np.savetxt('Corr.csv', Corr)
-
-
-
-
-#Corr_int = [[0.0 for a in range(m)] for b in range(m)]
-
-#x1 = [0.0]*n
-#x2 = [0.0]*n
-
-#for i in range(0,m):
-#    for j in range(0,n):
-#        x1[j] = float(X[j,i])
-#    for k in range(0,m):
-#        for l in range(0,n):
-#            x2[l] = float(X[l,k])
-#        x = stats.pearsonr(x1[:],x2[:])
-#        Corr_int[k][i] = x[0]
+f_out=open("test.csv",'w')
+writer=csv.writer(f_out)
+writer.writerows(Corr)
+f_out.close()
 
 
-#np.savetxt('Corr_int.csv', Corr_int)
+
+
+
+
+
+
 
 
 

@@ -27,16 +27,6 @@ PBE_fom  = csvdata[0:514,7]
 Comp_desc = csvdata[0:514,8:22]
 Elem_desc = csvdata[0:514,22:]
 
-# Formula = csvdata[:,0]
-# Mixing = csvdata[:,1]
-# PBE_latt = csvdata[:,2]
-# PBE_gap  = csvdata[:,3]
-# PBE_form_en = csvdata[:,4]
-# PBE_decomp_en = csvdata[:,5]
-# PBE_slme5  = csvdata[:,6]
-# PBE_fom  = csvdata[:,7]
-# Comp_desc = csvdata[:,8:22]
-# Elem_desc = csvdata[:,22:]
 
 X = csvdata[:,8:]
 
@@ -70,12 +60,6 @@ for i in range(0,m):
     x = stats.pearsonr(xx[:],prop[:])
     Corr[2][i] = x[0]
 
-# for i in range(0,m):
-#     for j in range(0,n):
-#         xx[j] = float(X[j,i])
-#         prop[j] = float(PBE_form_en[j])
-#     x = stats.pearsonr(xx[:],prop[:])
-#     Corr[2][i] = x[0]
 
 
 for i in range(0,m):
@@ -85,16 +69,9 @@ for i in range(0,m):
     x = stats.pearsonr(xx[:],prop[:])
     Corr[3][i] = x[0]
 
-# for i in range(0,m):
-#     for j in range(0,n):
-#         xx[j] = float(X[j,i])
-#         prop[j] = float(PBE_fom[j])
-#     x = stats.pearsonr(xx[:],prop[:])
-#     Corr[5][i] = x[0]
 
 print(len(Corr[3]))
 
-np.savetxt('Corr.csv', Corr)
 
 f_out=open("test.csv",'w')
 writer=csv.writer(f_out)
@@ -103,22 +80,7 @@ f_out.close()
 
 
 
-Corr_int = [[0.0 for a in range(m)] for b in range(m)]
 
-x1 = [0.0]*n
-x2 = [0.0]*n
-
-for i in range(0,m):
-    for j in range(0,n):
-        x1[j] = float(X[j,i])
-    for k in range(0,m):
-        for l in range(0,n):
-            x2[l] = float(X[l,k])
-        x = stats.pearsonr(x1[:],x2[:])
-        Corr_int[k][i] = x[0]
-
-
-np.savetxt('Corr_int.csv', Corr_int)
 
 
 
