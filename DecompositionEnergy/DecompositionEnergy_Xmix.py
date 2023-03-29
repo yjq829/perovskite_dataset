@@ -113,11 +113,17 @@ def decomp_phase_ext(element_input, formula_input, mix, element_frac):
 
 def entropy_calcs(decomp_frac):
     decomp_frac_test = copy.deepcopy(decomp_frac)
+    # print(decomp_frac_test)
     # kB in eV/K, using 300K as room temperature
     k_b = 8.617e-5
     T_ref = 300
     # print(element, mix, fomula)
-    mixing_entropy = k_b * T_ref * np.dot(np.array(decomp_frac_test), np.log(np.array(decomp_frac_test)))
+    frac_test_a=[]
+    for a in decomp_frac_test:
+        if a != 0:
+            frac_test_a.append(a)
+    # print(frac_test_a)
+    mixing_entropy = k_b * T_ref * np.dot(np.array(frac_test_a), np.log(np.array(frac_test_a)))
     return mixing_entropy
 
 
@@ -174,16 +180,16 @@ def decomp_calc_solve(decomp_phase, decomp_phase_frac, TOTEN, functional='PBE'):
             phase_ref_energy.append(ref_PBE_dict[i])
         # print(decomp_phase_tem)
         # print(phase_ref_energy)
-        # mixing_entropy = entropy_calcs(decomp_phase_frac_tem)
-        decomp_energy = TOTEN - np.dot(np.array(decomp_phase_frac_tem), np.array(phase_ref_energy))   + #mixing_entropy
+        mixing_entropy = entropy_calcs(decomp_phase_frac_tem)
+        decomp_energy = TOTEN - np.dot(np.array(decomp_phase_frac_tem), np.array(phase_ref_energy))   + mixing_entropy
     elif functional == 'HSE':
         phase_ref_energy = []
         for i in decomp_phase_tem:
             phase_ref_energy.append(ref_HSE_dict[i])
         # print(decomp_phase_tem)
         # print(phase_ref_energy)
-        # mixing_entropy = entropy_calcs(decomp_phase_frac_tem)
-        decomp_energy = TOTEN - np.dot(np.array(decomp_phase_frac_tem), np.array(phase_ref_energy))  + #mixing_entropy
+        mixing_entropy = entropy_calcs(decomp_phase_frac_tem)
+        decomp_energy = TOTEN - np.dot(np.array(decomp_phase_frac_tem), np.array(phase_ref_energy))  + mixing_entropy
     return decomp_energy
 
 

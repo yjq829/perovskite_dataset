@@ -29,46 +29,18 @@ AX_ref_PBE = pandas.read_excel('ref_data.xlsx', sheet_name='AX_PBE', engine='ope
 BX2_ref_HSE = pandas.read_excel('ref_data.xlsx', sheet_name='BX2_HSE', engine='openpyxl')
 BX2_ref_PBE = pandas.read_excel('ref_data.xlsx', sheet_name='BX2_PBE', engine='openpyxl')
 
-AX_ref_d3 = pandas.read_excel('ref_data.xlsx', sheet_name='AX_d3', engine='openpyxl')
-BX2_ref_d3 = pandas.read_excel('ref_data.xlsx', sheet_name='BX2_d3', engine='openpyxl')
-
-AX_ref_sol = pandas.read_excel('ref_data.xlsx', sheet_name='AX_sol', engine='openpyxl')
-BX2_ref_sol = pandas.read_excel('ref_data.xlsx', sheet_name='BX2_sol', engine='openpyxl')
-
-AX_ref_sol_d3 = pandas.read_excel('ref_data.xlsx', sheet_name='AX_sol_d3', engine='openpyxl')
-BX2_ref_sol_d3 = pandas.read_excel('ref_data.xlsx', sheet_name='BX2_sol_d3', engine='openpyxl')
 
 AX_ref_HSE_dict = AX_ref_HSE.set_index('sys')['HSE_ref'].to_dict()
 AX_ref_PBE_dict = AX_ref_PBE.set_index('sys')['PBE_ref'].to_dict()
 BX2_ref_HSE_dict = BX2_ref_HSE.set_index('sys')['HSE_ref'].to_dict()
 BX2_ref_PBE_dict = BX2_ref_PBE.set_index('sys')['PBE_ref'].to_dict()
 
-AX_ref_d3_dict = AX_ref_d3.set_index('sys')['d3_ref'].to_dict()
-BX2_ref_d3_dict = BX2_ref_d3.set_index('sys')['d3_ref'].to_dict()
-
-AX_ref_sol_dict = AX_ref_sol.set_index('sys')['sol_ref'].to_dict()
-BX2_ref_sol_dict = BX2_ref_sol.set_index('sys')['sol_ref'].to_dict()
-
-AX_ref_sol_d3_dict = AX_ref_sol_d3.set_index('sys')['sol_d3_ref'].to_dict()
-BX2_ref_sol_d3_dict = BX2_ref_sol_d3.set_index('sys')['sol_d3_ref'].to_dict()
 
 ref_HSE_dict = AX_ref_HSE_dict
 ref_HSE_dict.update(BX2_ref_HSE_dict)
 ref_PBE_dict = AX_ref_PBE_dict
 ref_PBE_dict.update(BX2_ref_PBE_dict)
 
-ref_d3_dict = AX_ref_d3_dict
-ref_d3_dict.update(BX2_ref_d3_dict)
-
-ref_sol_dict = AX_ref_sol_dict
-ref_sol_dict.update(BX2_ref_sol_dict)
-
-ref_sol_d3_dict = AX_ref_sol_d3_dict
-ref_sol_d3_dict.update(BX2_ref_sol_d3_dict)
-
-
-# print(ref_HSE_dict)
-# print(ref_PBE_dict)
 
 
 # mixing analyze
