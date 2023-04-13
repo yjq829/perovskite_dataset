@@ -114,4 +114,4 @@ For more details about the descriptors, please refer to our paper.
 
 
 
-![image](https://user-images.githubusercontent.com/32602669/228574400-9792d8ef-5227-4a74-927b-fd9ad574e273.png)
+
